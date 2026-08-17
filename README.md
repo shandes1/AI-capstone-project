@@ -25,7 +25,7 @@ Upload an image → get an English caption → a short genre story → Nepali tr
 - GPU recommended (CUDA) for BLIP + Qwen, but falls back to CPU
 
 ```bash
-pip install streamlit torch transformers pillow deep_translator gtts edge-tts
+pip install streamlit torch torchvision transformers pillow deep-translator gtts edge-tts
 ```
 
 ## Usage
