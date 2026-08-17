@@ -1,0 +1,7 @@
+streamlit
+torch
+transformers
+pillow
+deep-translator
+gTTS
+edge-tts

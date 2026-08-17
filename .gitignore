@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.jpg
+*.jpeg
+*.png
+*.wav
+*.mp3
+.venv/
+venv/
