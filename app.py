@@ -49,18 +49,28 @@ if image_file:
     # Story
     st.subheader("2. Generated Story (English)")
 
-    genre_labels = list(GENRES.values())
-    default_index = list(GENRES.keys()).index(DEFAULT_GENRE)
-    selected_label = st.radio("Genre", genre_labels, index=default_index, horizontal=True)
-    # Map the emoji-labeled display string back to the clean genre name used in the prompt
-    genre = next(g for g, label in GENRES.items() if label == selected_label)
+    genre_list = list(GENRES.keys())
+    default_index = genre_list.index(DEFAULT_GENRE)
+    genre = st.radio("Genre", genre_list, index=default_index, horizontal=True)
 
     regenerate = st.button("Regenerate story")
     story_key = "story_" + str(hash((caption, genre)))
 
+    # if story_key not in st.session_state or regenerate:
+    #     with st.spinner(f"Writing {genre.lower()} story..."):
+    #         st.session_state[story_key] = generate_story(caption, story_tokenizer, story_model, genre=genre)
+    # story = st.session_state[story_key]
+    # st.write(story)
+
+
+    #testing
+    import time 
+
     if story_key not in st.session_state or regenerate:
         with st.spinner(f"Writing {genre.lower()} story..."):
+            t0 = time.time()
             st.session_state[story_key] = generate_story(caption, story_tokenizer, story_model, genre=genre)
+            st.write(f"⏱️ Generation took {time.time() - t0:.1f}s")  # temporary debug line
     story = st.session_state[story_key]
     st.write(story)
 

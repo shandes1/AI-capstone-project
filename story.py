@@ -11,14 +11,14 @@ story_model_name = "Qwen/Qwen2.5-1.5B-Instruct"
 
 
 GENRES = {
-    "Fantasy": " Fantasy",
-    "Children's": " Children's",
-    "Mystery": " Mystery",
-    "Emotional": " Emotional",
-    "Adventure": " Adventure",
-    "Cinematic": " Cinematic",
-    "Comedy": " Comedy",
-    "Horror": " Horror",
+    "Fantasy": "Fantasy",
+    "Children's": "Children's",
+    "Mystery": "Mystery",
+    "Emotional": "Emotional",
+    "Adventure": "Adventure",
+    "Cinematic": "Cinematic",
+    "Comedy": "Comedy",
+    "Horror": "Horror",
 }
 
 DEFAULT_GENRE = "Fantasy"
@@ -60,9 +60,9 @@ def generate_story(caption, tokenizer, model, genre=DEFAULT_GENRE):
     with torch.no_grad():
         output = model.generate(
             **inputs,
-            max_new_tokens=150,
+            max_new_tokens=100,
             do_sample=True,
-            temperature=0.8,
+            temperature=0.6,
             top_p=0.9,
             pad_token_id=tokenizer.eos_token_id
         )
