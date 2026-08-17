@@ -60,9 +60,9 @@ def generate_story(caption, tokenizer, model, genre=DEFAULT_GENRE):
     with torch.no_grad():
         output = model.generate(
             **inputs,
-            max_new_tokens=100,
+            max_new_tokens=150,
             do_sample=True,
-            temperature=0.6,
+            temperature=0.8,
             top_p=0.9,
             pad_token_id=tokenizer.eos_token_id
         )
