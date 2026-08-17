@@ -1,5 +1,3 @@
-
-
 # Import Required Libraries
 import torch
 from PIL import Image

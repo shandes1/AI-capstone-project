@@ -56,21 +56,9 @@ if image_file:
     regenerate = st.button("Regenerate story")
     story_key = "story_" + str(hash((caption, genre)))
 
-    # if story_key not in st.session_state or regenerate:
-    #     with st.spinner(f"Writing {genre.lower()} story..."):
-    #         st.session_state[story_key] = generate_story(caption, story_tokenizer, story_model, genre=genre)
-    # story = st.session_state[story_key]
-    # st.write(story)
-
-
-    #testing
-    import time 
-
     if story_key not in st.session_state or regenerate:
         with st.spinner(f"Writing {genre.lower()} story..."):
-            t0 = time.time()
             st.session_state[story_key] = generate_story(caption, story_tokenizer, story_model, genre=genre)
-            st.write(f"⏱️ Generation took {time.time() - t0:.1f}s")  # temporary debug line
     story = st.session_state[story_key]
     st.write(story)
 
